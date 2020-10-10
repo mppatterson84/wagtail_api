@@ -26,6 +26,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
     'home',
     'search',
 
