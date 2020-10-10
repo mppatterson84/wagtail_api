@@ -20,6 +20,8 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # Application definition
 
@@ -90,8 +92,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ['DATABASE_NAME'],
+        'USER': os.environ['DATABASE_USER'],
+        'PASSWORD': os.environ['DATABASE_PASSWORD'],
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -120,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
