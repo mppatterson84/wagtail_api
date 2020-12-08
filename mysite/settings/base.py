@@ -26,6 +26,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # Application definition
 
 INSTALLED_APPS = [
+    'api_v1',
     'blog',
     'home',
     'search',
@@ -170,3 +171,8 @@ WAGTAIL_SITE_NAME = "mysite"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
